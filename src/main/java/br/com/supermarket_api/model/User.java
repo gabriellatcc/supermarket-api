@@ -16,7 +16,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@JsonPropertyOrder({ "id", "name", "createdAt", "lastUpdatedAt" })
+@JsonPropertyOrder({ "id", "name", "email", "createdAt", "lastUpdatedAt" })
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -24,6 +24,9 @@ public class User {
 
     @Column(name = "name", unique = true)
     private String name;
+
+    @Column(name = "email")
+    private String email;
 
     @JsonIgnore
     @Column(name = "password")

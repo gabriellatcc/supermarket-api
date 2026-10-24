@@ -43,10 +43,11 @@ public class UserService {
         return UserResponse.from(user);
     }
 
-    // store (ainda falta o hash da senha, veja abaixo)
+    // store
     public UserResponse createUser(Map<String, Object> data) {
         User user = User.builder()
                 .name((String) data.get("name"))
+                .name((String) data.get("email"))
                 .password(passwordEncoder.encode((String) data.get("password")))
                 .build();
         return UserResponse.from(repository.save(user));
@@ -58,6 +59,7 @@ public class UserService {
         User user = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         user.setName((String) data.get("name"));
+        user.setEmail((String) data.get("email"));
         return UserResponse.from(repository.save(user));
     }
 

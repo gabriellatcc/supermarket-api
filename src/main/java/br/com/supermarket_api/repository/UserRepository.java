@@ -10,9 +10,4 @@ import br.com.supermarket_api.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
-    @Override
-    default Optional<User> findById(UUID id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
-    }
 }

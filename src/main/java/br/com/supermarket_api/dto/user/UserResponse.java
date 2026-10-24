@@ -8,6 +8,7 @@ import br.com.supermarket_api.model.User;
 public record UserResponse(
         UUID id,
         String name,
+        String email,
         LocalDateTime createdAt,
         LocalDateTime lastUpdatedAt
 ) {
@@ -15,6 +16,7 @@ public record UserResponse(
         return new UserResponse(
                 user.getId(),
                 user.getName(),
+                user.getEmail(),
                 user.getCreatedAt(),
                 user.getLastUpdatedAt()
         );
