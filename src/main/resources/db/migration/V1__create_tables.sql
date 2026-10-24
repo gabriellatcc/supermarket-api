@@ -1,0 +1,14 @@
+CREATE TABLE users (
+    id UUID PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL,
+    last_updated_at TIMESTAMP NOT NULL
+);
+
+CREATE TABLE products (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    price NUMERIC(10,2) NOT NULL,
+    quantity INTEGER NOT NULL DEFAULT 0
+);
